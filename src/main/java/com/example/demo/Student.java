@@ -1,8 +1,9 @@
 package com.example.demo;
 
 import javax.persistence.*;
-
 import static javax.persistence.GenerationType.SEQUENCE;
+
+//To map this class to a table we need to use @ notation
 
 @Entity(name = "Student")
 @Table(
@@ -34,14 +35,14 @@ public class Student {
             nullable = false,
             columnDefinition = "TEXT"
     )
-    private String firstName;
+    private String firstname;
 
     @Column(
             name = "last_name",
             nullable = false,
             columnDefinition = "TEXT"
     )
-    private String lastName;
+    private String lastname;
 
     @Column(
             name = "email",
@@ -53,24 +54,14 @@ public class Student {
     @Column(
             name = "age",
             nullable = false
-
     )
     private Integer age;
 
-    public Student(Long id,
-                   String firstName,
-                   String lastName,
-                   String email,
-                   Integer age) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Student(String firstname, String lastname, String email, Integer age) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
         this.age = age;
-    }
-
-    public Student() {
-
     }
 
     public Long getId() {
@@ -81,20 +72,20 @@ public class Student {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
@@ -111,16 +102,5 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                '}';
     }
 }
